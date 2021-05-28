@@ -32,8 +32,8 @@ async def on_message(message):
         response = requests.get('https://thesimpsonsquoteapi.glitch.me/quotes')
         json_data = json.loads(response.text)
         #print(str((json_data[0])["quote"]) + ' - ' + str((json_data[0])["character"] + '\n' + str((json_data[0])["image"])))
-        await message.channel.send(str((json_data[0])["quote"]) + '\n - ' + str((json_data[0])["character"]) + '\n' + (json_data[0])["image"])
-        #await message.channel.send((json_data[0])["image"])
+        await message.channel.send(str((json_data[0])["quote"]) + '\n - ' + str((json_data[0])["character"]))# + '\n' + (json_data[0])["image"])
+        await message.channel.send((json_data[0])["image"])
     else:
         print("User ID: " + str(client.user.id))
         print("Username: " + str(message.author))
